@@ -8,14 +8,21 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Header / Navbar -->
     <header class="custom-header">
         <div class="header-container">
+            <div class="nav-toggle" id="navToggle" aria-label="Menu" tabindex="0">
+                <span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="logo-custom">
-                <img src="logo.png" alt="Logo Arya" />
+                <img src="assets/adu.png" alt="Logo Arya" />
             </div>
             <nav class="custom-nav">
                 <ul>
@@ -35,7 +42,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="custom-hero" id="home">
+    <section class="custom-hero" id="home" data-aos="fade-up">
         <div class="hero-content-left">
             <span class="hero-intro">I’M</span>
             <h1><span class="hero-name">Arya Dwi Utama</span></h1>
@@ -46,16 +53,17 @@
             <img src="assets/tama.png" alt="Foto Profil" class="hero-photo" />
             <div class="hero-socials">
                 <span></span>
-                <a href="https://facebook.com/" target="_blank"><i class='bx bxl-facebook'></i></a>
-                <a href="https://twitter.com/" target="_blank"><i class='bx bxl-twitter'></i></a>
-                <a href="https://linkedin.com/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://wa.me/" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+                <a href="mailto:utamaarya69@email.com" target="_blank"><i class='bx bx-envelope'></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/arya-dwi-utama-459190264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://wa.me/6285763684709" target="_blank"><i class='bx bxl-whatsapp'></i></a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about" id="about" data-aos="fade-up" data-aos-delay="100">
         <div class="about-simple-container">
             <h2 class="about-title">About</h2>
             <div class="about-desc-box">
@@ -86,7 +94,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills" id="skills">
+    <section class="skills" id="skills" data-aos="fade-up" data-aos-delay="200">
         <div class="skills-container">
             <h2 class="skills-title">My Skills</h2>
             <div class="skills-grid">
@@ -127,7 +135,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio" id="portfolio" data-aos="fade-up" data-aos-delay="300">
         <div class="portfolio-container">
             <h2 class="portfolio-title">Portfolio</h2>
             <div class="portfolio-grid">
@@ -157,7 +165,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="experience" id="experience">
+    <section class="experience" id="experience" data-aos="fade-up" data-aos-delay="400">
         <div class="experience-container">
             <h2 class="experience-title">Experience</h2>
             <div class="timeline">
@@ -192,7 +200,7 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section class="testimonial" id="testimonial">
+    <section class="testimonial" id="testimonial" data-aos="fade-up" data-aos-delay="500">
         <div class="testimonial-container">
             <div class="testimonial-left">
                 <h2 class="testimonial-title">Testimonial</h2>
@@ -219,16 +227,18 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" data-aos="fade-up" data-aos-delay="600">
         <div class="contact-container">
             <div class="contact-left">
                 <h2 class="contact-title">Contact Me</h2>
                 <p class="contact-desc">
-                    Tertarik bekerja sama atau ingin bertanya? Silakan kirim pesan melalui form di samping atau hubungi saya langsung melalui email dan WhatsApp di bawah ini.
+                    Tertarik bekerja sama atau ingin bertanya? Silakan kirim pesan melalui form di samping atau hubungi
+                    saya langsung melalui email dan WhatsApp di bawah ini.
                 </p>
                 <div class="contact-info">
                     <div><i class='bx bx-envelope'></i> <a href="mailto:arya@email.com">utamaarya69@email.com</a></div>
-                    <div><i class='bx bxl-whatsapp'></i> <a href="https://wa.me/6285763684709" target="_blank">+62 857-6368-4709</a></div>
+                    <div><i class='bx bxl-whatsapp'></i> <a href="https://wa.me/6285763684709" target="_blank">+62
+                            857-6368-4709</a></div>
                 </div>
             </div>
             <div class="contact-right">
@@ -244,11 +254,10 @@
     </section>
 
     <!-- Footer -->
-    <footer class="main-footer">
+    <footer class="main-footer" data-aos="fade-up" data-aos-delay="700">
         <div class="footer-container">
             <div class="footer-brand">
-                <img src="logo.png" alt="Logo Arya" class="footer-logo">
-                <span class="footer-name">Arya Dwi Utama</span>
+                <img src="assets/adu.png" alt="Logo Arya" class="footer-logo">
             </div>
             <div class="footer-links">
                 <a href="#about">About</a>
@@ -269,6 +278,68 @@
             &copy; 2025 Arya Dwi Utama. All rights reserved.
         </div>
     </footer>
+
+    <!-- Theme Switcher -->
+    <button class="theme-switcher-btn" id="themeSwitcherBtn" title="Ganti Tema">
+        <i class='bx bx-paint'></i>
+    </button>
+    <div class="theme-switcher-popup" id="themeSwitcherPopup">
+        <div class="theme-switcher-option" data-theme="dark">
+            <i class='bx bx-moon'></i> Dark
+        </div>
+        <div class="theme-switcher-option" data-theme="light">
+            <i class='bx bx-sun'></i> Light
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('themeSwitcherBtn');
+        const popup = document.getElementById('themeSwitcherPopup');
+        const options = popup.querySelectorAll('.theme-switcher-option');
+
+        // Tampilkan/sembunyikan popup
+        btn.onclick = (e) => {
+            e.stopPropagation();
+            popup.classList.toggle('active');
+        };
+
+        // Tutup popup jika klik di luar
+        window.onclick = (e) => {
+            if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                popup.classList.remove('active');
+            }
+        };
+
+        // Ganti tema saat opsi dipilih
+        options.forEach(opt => {
+            opt.onclick = () => {
+                document.body.classList.toggle('light-theme', opt.dataset.theme === 'light');
+                options.forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
+                popup.classList.remove('active');
+                // Simpan preferensi ke localStorage
+                localStorage.setItem('theme', opt.dataset.theme);
+            };
+        });
+
+        // Load preferensi tema saat halaman dibuka
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light') {
+            document.body.classList.add('light-theme');
+            options.forEach(o => o.classList.toggle('selected', o.dataset.theme === 'light'));
+        } else {
+            options.forEach(o => o.classList.toggle('selected', o.dataset.theme === 'dark'));
+        }
+        
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 60
+        });
+    </script>
 </body>
 
 </html>
