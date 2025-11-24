@@ -72,41 +72,86 @@ document.querySelectorAll('.skill-card').forEach(card => {
     progressBar.style.width = skillLevel;
 });
 
-// Tambahkan sebelum </body> atau di file JS
-const btn = document.getElementById('themeSwitcherBtn');
-const popup = document.getElementById('themeSwitcherPopup');
-const options = popup.querySelectorAll('.theme-switcher-option');
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('themeSwitcherBtn');
+  const popup = document.getElementById('themeSwitcherPopup');
+  const options = popup ? popup.querySelectorAll('.theme-switcher-option') : [];
+  const navLinks = document.querySelectorAll('.custom-nav ul li a');
+  const navUl = document.querySelector('.custom-nav ul');
+  const header = document.querySelector('.custom-header');
 
-// Tampilkan/sembunyikan popup
-btn.onclick = (e) => {
-  e.stopPropagation();
-  popup.classList.toggle('active');
-};
+  /* THEME SWITCHER */
+  if (btn && popup) {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      popup.classList.toggle('active');
+    });
 
-// Tutup popup jika klik di luar
-window.onclick = (e) => {
-  if (!btn.contains(e.target) && !popup.contains(e.target)) {
-    popup.classList.remove('active');
+    document.addEventListener('click', e => {
+      if (!btn.contains(e.target) && !popup.contains(e.target)) popup.classList.remove('active');
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') popup.classList.remove('active');
+    });
+
+    if (options.length) {
+      options.forEach(opt => {
+        opt.addEventListener('click', () => {
+          const theme = opt.dataset.theme === 'light' ? 'light' : 'dark';
+          document.body.classList.toggle('light-theme', theme === 'light');
+          options.forEach(o => o.classList.toggle('selected', o === opt));
+          popup.classList.remove('active');
+          localStorage.setItem('theme', theme);
+        });
+      });
+
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        document.body.classList.add('light-theme');
+        options.forEach(o => o.classList.toggle('selected', o.dataset.theme === 'light'));
+      } else {
+        options.forEach(o => o.classList.toggle('selected', o.dataset.theme === 'dark'));
+      }
+    }
   }
-};
 
-// Ganti tema saat opsi dipilih
-options.forEach(opt => {
-  opt.onclick = () => {
-    document.body.classList.toggle('light-theme', opt.dataset.theme === 'light');
-    options.forEach(o => o.classList.remove('selected'));
-    opt.classList.add('selected');
-    popup.classList.remove('active');
-    // Simpan preferensi ke localStorage
-    localStorage.setItem('theme', opt.dataset.theme);
-  };
+  /* SMOOTH SCROLL (nav) */
+  if (navLinks && navLinks.length) {
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+
+        const headerHeight = header ? header.offsetHeight : 0;
+        const extraGap = 14;
+        const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraGap;
+
+        window.scrollTo({ top: Math.max(0, Math.round(targetY)), behavior: 'smooth' });
+
+        if (navUl && navUl.classList.contains('show')) navUl.classList.remove('show');
+
+        navLinks.forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+
+        setTimeout(() => {
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        }, 600);
+      });
+    });
+  }
+
+  /* AOS INIT (load if needed) */
+  if (window.AOS && typeof AOS.init === 'function') {
+    AOS.init({ duration: 700, once: true, offset: 60 });
+  } else {
+    const s = document.createElement('script');
+    s.src = 'https://unpkg.com/aos@2.3.4/dist/aos.js';
+    s.onload = () => { if (window.AOS) AOS.init({ duration: 700, once: true, offset: 60 }); };
+    document.head.appendChild(s);
+  }
 });
-
-// Load preferensi tema saat halaman dibuka
-const saved = localStorage.getItem('theme');
-if (saved === 'light') {
-  document.body.classList.add('light-theme');
-  options.forEach(o => o.classList.toggle('selected', o.dataset.theme === 'light'));
-} else {
-  options.forEach(o => o.classList.toggle('selected', o.dataset.theme === 'dark'));
-}

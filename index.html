@@ -17,9 +17,9 @@
         <div class="header-container">
             <div class="nav-toggle" id="navToggle" aria-label="Menu" tabindex="0">
                 <span>
-                <span></span>
-                <span></span>
-                <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
             </div>
             <div class="logo-custom">
                 <img src="assets/adu.png" alt="Logo Arya" />
@@ -140,21 +140,21 @@
             <h2 class="portfolio-title">Portfolio</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-card">
-                    <img src="https://source.unsplash.com/400x300/?website,modern" alt="Website Project">
+                    <img src="assets/web.png" alt="Website Project">
                     <div class="portfolio-info">
                         <h3>Website Project</h3>
                         <p>Membangun website company profile modern dengan desain responsif dan performa optimal.</p>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="https://source.unsplash.com/400x300/?mobile,app" alt="App Project">
+                    <img src="assets/app.png" alt="App Project">
                     <div class="portfolio-info">
                         <h3>App Project</h3>
                         <p>Aplikasi mobile untuk manajemen tugas harian dengan UI/UX yang user-friendly.</p>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="https://source.unsplash.com/400x300/?dashboard,analytics" alt="Dashboard Project">
+                    <img src="assets/dash.png" alt="Dashboard Project">
                     <div class="portfolio-info">
                         <h3>Dashboard Project</h3>
                         <p>Dashboard interaktif untuk visualisasi data bisnis secara real-time.</p>
@@ -198,6 +198,61 @@
             </div>
         </div>
     </section>
+
+    <!--Map-->
+    <section class="map-section" data-aos="fade-up" data-aos-delay="450">
+        <div class="map-container">
+            <h2 class="map-title">My Location</h2>
+
+            <div class="map-grid">
+                <div class="map-left">
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps?q=3.5972116,98.754172&z=17&output=embed"
+                            title="Map showing Arya's location" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <aside class="map-right" aria-label="Address information">
+                    <div class="map-info-card">
+                        <div class="map-pin-large"><i class='bx bx-map'></i></div>
+                        <div class="map-info-content">
+                            <div class="map-place">Medan, ID</div>
+                            <address class="map-address">
+                                Jl. Medan-Bt. Kuis No.1003 Dsn XI Desa Bandar Klippa<br>
+                                Percut Sei Tuan, Deli Serdang<br>
+                                Sumatera Utara, Indonesia
+                            </address>
+
+                            <ul class="map-meta">
+                                <li><strong>Latitude</strong><span>3.597212</span></li>
+                                <li><strong>Longitude</strong><span>98.754172</span></li>
+                                <li><strong>Open</strong><span>09:00 — 18:00</span></li>
+                            </ul>
+
+                            <div class="map-contact">
+                                <a class="map-contact-btn" href="tel:+6285763684709"><i class='bx bx-phone'></i></a>
+                                <a class="map-contact-btn" href="mailto:utamaarya69@email.com"><i
+                                        class='bx bx-envelope'></i></a>
+                                <a class="map-contact-btn" href="https://wa.me/6285763684709" target="_blank"><i
+                                        class='bx bxl-whatsapp'></i></a>
+                            </div>
+
+                            <div class="map-actions-vertical">
+                                <a class="map-btn full" href="https://www.google.com/maps?q=3.5972116,98.754172"
+                                    target="_blank" rel="noopener">Buka di Maps</a>
+                                <a class="map-btn full"
+                                    href="https://www.google.com/maps/dir/?api=1&destination=3.5972116,98.754172"
+                                    target="_blank" rel="noopener">Dapatkan Rute</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Testimonial Section -->
     <section class="testimonial" id="testimonial" data-aos="fade-up" data-aos-delay="500">
@@ -330,13 +385,13 @@
         } else {
             options.forEach(o => o.classList.toggle('selected', o.dataset.theme === 'dark'));
         }
-        
+
     </script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 700,
-            once: true,
+            once: false,
             offset: 60
         });
     </script>
